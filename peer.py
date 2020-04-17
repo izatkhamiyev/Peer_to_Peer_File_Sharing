@@ -57,6 +57,9 @@ exampleList = ["png","250kb","16/04/2020","192.168.1.1","27027"]
 def onsearch():
     text = textField.get()
     if text != "":
+        item = tree.get_children()
+        for x in item:
+            tree.delete(x)
         res_list = parse_data(search(text))
         for i in res_list:
             tree.insert("", "end", text=text, values=i)
