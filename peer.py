@@ -7,7 +7,7 @@ import time
 
 s = socket.socket()
 host = '127.0.0.1'
-port = 7771
+port = 7772
 s.connect((host, port))
 
 local_files = [
@@ -103,10 +103,11 @@ def search(filename):
     message = "SEARCH " + filename
     message = pickle.dumps(message)
     s.send(message)
-    res = receive_message(s)
-    if res == "FOUND: ":
-        data = s.recv(2024)
-        data = pickle.loads(data)
+    res = s.recv(2048)
+    res = pickle.loads(res)
+
+    if res[:7] == "FOUND: ":
+        data = res[7:].split(";")
         return data
     else:
         return []

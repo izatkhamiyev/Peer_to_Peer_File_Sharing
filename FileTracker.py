@@ -9,7 +9,7 @@ from _thread import *
 
 ftsocket = socket.socket()
 host = '127.0.0.1'
-port = 7771
+port = 7772
 ftsocket.bind(('', port))
 ftsocket.listen(5)  
 
@@ -80,8 +80,12 @@ def get_peer(peer, addr):
             if not files:
                 peer.send(pickle.dumps("NOT FOUND"))
             else:
-                peer.send(pickle.dumps("FOUND: "))
-                peer.send(pickle.dumps(files))
+                res = "FOUND: "
+                for f in range(len(files)):
+                    res += files[f]
+                    if f != len(files) - 1:
+                        res += ";"
+                peer.send(pickle.dumps(res))
         if "BYE" in req:
             delete_peer(addr)
             break
