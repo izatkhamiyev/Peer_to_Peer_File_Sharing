@@ -4,6 +4,7 @@ Peer shares all files in the current directory, when it connects with the FileTr
 
 ### Testing: 
 - Run FileTracker.py from terminal
+- Make sure that peers know server's ip and port
 - Go to ./Testing/clientA and run peer.py from terminal
 - Go to ./Testing/clientB and run peer.py from terminal
 - Search shared files from GUI (type filename)
