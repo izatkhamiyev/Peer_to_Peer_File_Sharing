@@ -9,7 +9,7 @@ from _thread import *
 
 ftsocket = socket.socket()
 host = '127.0.0.1'
-port = 7772
+port = 7773
 ftsocket.bind(('', port))
 ftsocket.listen(5)  
 

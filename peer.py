@@ -8,7 +8,7 @@ from stat import *
 
 s = socket.socket()
 host = '127.0.0.1'
-port = 7772
+port = 7773
 s.connect((host, port))
 
 # local_files = [
